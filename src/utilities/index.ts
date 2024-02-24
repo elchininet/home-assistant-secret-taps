@@ -18,6 +18,15 @@ import {
     TYPEOF,
     DOMAIN_ENTITY_REGEXP
 } from '@constants';
+import { version } from '../../package.json';
+
+export const logVersionToConsole = () => {
+    console.info(
+        `%c👆👆👆 ${NAMESPACE.toUpperCase()} 👆👆👆%cv${version}`,
+        'font-size: 16px; background: #00acfb; color: #FFFFFF; padding: 5px 20px',
+        'font-size: 16px; background: #666666; color: #FFFFFF; padding: 5px 20px'
+    );
+};
 
 export const randomId = (): string => Math.random().toString(16).slice(2);
 

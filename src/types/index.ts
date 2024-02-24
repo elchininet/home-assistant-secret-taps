@@ -63,6 +63,7 @@ export interface Profile {
 export interface Config {
     enabled: boolean;
     threshold?: number;
+    notification?: boolean;
     profiles: Profile[];
 }
 

@@ -19,6 +19,7 @@ export enum GESTURES {
 export enum EVENT {
     HASS_MORE_INFO = 'hass-more-info',
     HASS_TOGGLE_MENU = 'hass-toggle-menu',
+    HASS_NOTIFICATION = 'hass-notification',
     LOCATION_CHANGED = 'location-changed'
 }
 

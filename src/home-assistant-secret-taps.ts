@@ -19,6 +19,7 @@ import {
     DOMAIN_ENTITY_REGEXP
 } from '@constants';
 import {
+    logVersionToConsole,
     fetchConfig,
     getPromisableElement,
     getSecrets,
@@ -148,25 +149,52 @@ class HomeAssistantSecretTaps {
         );
     }
 
+    private _showNotification(message: string): void {
+        this._ha.dispatchEvent(
+            new CustomEvent(
+                EVENT.HASS_NOTIFICATION,
+                {
+                    detail: {
+                        message,
+                        dismissable: true
+                    }
+                }
+            )
+        );
+    }
+
     private _execute(secret: Secret): void {
 
+        let executed = false;
+
         if (isServiceSecret(secret)) {
+
             this._callService(secret);
-            return;
-        }
+            executed = true;
 
-        if (isMoreInfoSecret(secret)) {
+        } else if (isMoreInfoSecret(secret)) {
+
             this._openMoreInfo(secret);
-            return;
-        }
+            executed = true;
 
-        if (isNavigateSecret(secret)) {
+        } else if (isNavigateSecret(secret)) {
+
             this._navigate(secret);
-            return;
+            executed = true;
+
+        } else if (isToggleMenuSecret(secret)) {
+
+            this._toggleMenu();
+            executed = true;
+
         }
 
-        if (isToggleMenuSecret(secret)) {
-            this._toggleMenu();
+        if (this._config.notification) {
+            this._showNotification(
+                executed
+                    ? 'secret taps successfully executed!'
+                    : 'secret taps failed! Review your secret config!'
+            );
         }
 
     }
@@ -242,6 +270,6 @@ class HomeAssistantSecretTaps {
 }
 
 if (!window.HomeAssistantSecretTaps) {
-    //logVersionToConsole();
+    logVersionToConsole();
     window.HomeAssistantSecretTaps = new HomeAssistantSecretTaps();
 }
