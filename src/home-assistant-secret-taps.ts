@@ -40,7 +40,7 @@ class HomeAssistantSecretTaps {
         selector.addEventListener(
             HAQuerySelectorEvent.ON_LISTEN,
             (event: CustomEvent<OnListenDetail>) => {
-                
+
                 Promise.all([
                     fetchConfig(),
                     event.detail.HOME_ASSISTANT.element,
@@ -69,7 +69,7 @@ class HomeAssistantSecretTaps {
                     }
 
                 });
-                
+
             },
             {
                 once: true
@@ -248,7 +248,7 @@ class HomeAssistantSecretTaps {
         const singleTap = new Hammer.Tap({
             event: GESTURES.TAP
         });
-        
+
         this._taps.add([
             tripleTap,
             doubleTap,
@@ -262,7 +262,7 @@ class HomeAssistantSecretTaps {
         singleTap.requireFailure([doubleTap, tripleTap]);
 
         this._taps.on(Object.values(GESTURES).join(' '), (event: HammerInput): void => {
-            this._trackTap(event);            
+            this._trackTap(event);
         });
 
     }
