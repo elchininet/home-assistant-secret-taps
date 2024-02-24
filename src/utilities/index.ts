@@ -126,21 +126,21 @@ export const isMoreInfoSecret = (secret: Secret): secret is MoreInfoSecret => {
         secret.action === ServiceType.MORE_INFO &&
         !!secret.entity_id
     );
-}
+};
 
 export const isNavigateSecret = (secret: Secret): secret is NavigateSecret => {
     return (
         secret.action === ServiceType.NAVIGATE &&
         !!secret.navigation_path
     );
-}
+};
 
 export const isToggleMenuSecret = (secret: Secret): secret is ToggleMenuSecret => {
     return secret.action === ServiceType.TOGGLE_MENU;
-}
+};
 
 export const compareArrays = <T>(arrayA: T[], arrayB: T[]): boolean => {
-    const length = arrayA.length
+    const length = arrayA.length;
     if (arrayB.length !== length) {
         return false;
     }
