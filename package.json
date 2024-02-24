@@ -21,7 +21,7 @@
     "@rollup/plugin-terser": "^0.4.4",
     "@types/hammerjs": "^2.0.45",
     "@types/js-yaml": "^4.0.9",
-    "@types/node": "^20.11.19",
+    "@types/node": "^20.11.20",
     "rollup": "^4.12.0",
     "rollup-plugin-ts": "^3.4.5",
     "typescript": "^5.3.3"
