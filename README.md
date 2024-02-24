@@ -1,6 +1,6 @@
 # Home Assistant Secret Taps
 
-<img src="./images/home-assistant-secret-taps.png" />
+![Home Assistant Secret Taps](images/home-assistant-secret-taps.png)
 
 ### Execute Home Assistant actions just tapping on your device.
 
