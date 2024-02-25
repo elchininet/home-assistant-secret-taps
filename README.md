@@ -21,7 +21,7 @@ This is when `Home Assistant Secret Taps` comes to scene, you can configure "sec
 
  You can configure a secuence of taps that will call the `toggle` service on that entity to show the header, then you can perform the changes that you want, and turn it off again using the same tap secuence. 
 
-**Do you have the sidebar menu-button hidden to avoid opening the sidebar by everyone?**
+**Do you have the sidebar menu-button hidden to avoid someone else being able to open it and navigate to other dashboards?**
 
 You can configure a secret secuence of taps that opens and closes the sidebar without interacting with any visible element.
 
