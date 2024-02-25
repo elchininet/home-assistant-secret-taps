@@ -186,7 +186,7 @@ profiles:
         action: call-service
         service: input_boolean.toggle
         data:
-          entity_id: input_boolean.kiosk_hide_header
+          entity_id: input_boolean.kiosk_header
       - taps:
         - tap
         - double-tap
