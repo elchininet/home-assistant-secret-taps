@@ -82,6 +82,7 @@ The configuration must be stored in a `yaml` file that needs be placed inside th
 | enabled            | Boolean                     | no       | false       | Enables or disables the plugin |
 | threshold          | Number                      | no       | 1000        | Maximum number of milliseconds between taps |
 | notification       | Boolean                     | no       | false       | Trigger a notification when a secret is successfully executed or when it failed to call the secret because a wrong config |
+| debug              | Boolean                     | no       | false       | If it is true it will print debug messages on the developer console that will help to debug an issue |
 | profiles           | Array of [Profile](#profile-properties) | yes      | -           | List of profiles |
 
 >Note: the `threshold` among taps is by default `1000` milliseconds (1 second) and you can increase it. Just take into account that this number is also the delay between the last tap and when the action is executed, because during this time the plugin is still expecting that another tap could be executed.
