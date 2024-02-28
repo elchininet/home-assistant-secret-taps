@@ -231,6 +231,8 @@ class HomeAssistantSecretTaps {
 
     private _start(): void {
 
+        console.log('config', this._config);
+
         delete Hammer.defaults.cssProps;
 
         this._taps = new Hammer.Manager(this._ha);

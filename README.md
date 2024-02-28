@@ -108,7 +108,7 @@ All secrets should have these properties:
 | taps               | Array of `Tap`    | yes      | -           | Secuence of taps |
 | action             | String           | yes      | -           | Action to perform |
 
->Note: you should always configure the `taps` property using multiple taps and not a very common taps pattern. If you set up an action to be performed with a single `tap`, its action will be executed every time that you tap on the screen.
+>Note: you should always configure the `taps` property using multiple taps and not a very common taps pattern. If you set up an action to be performed with a single `tap`, it will be executed every time that you tap on the screen, always.
 
 ##### Tap property
 
