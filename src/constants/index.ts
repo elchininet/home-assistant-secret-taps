@@ -7,7 +7,8 @@ export const DEFAULT_THRESHOLD = 1000;
 
 export enum TYPEOF {
     BOOLEAN = 'boolean',
-    UNDEFINED = 'undefined'
+    UNDEFINED = 'undefined',
+    OBJECT = 'object'
 }
 
 export enum GESTURES {

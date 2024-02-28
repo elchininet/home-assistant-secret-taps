@@ -13,9 +13,11 @@ import {
     NavigateSecret
 } from 'types';
 import {
+    NAMESPACE,
     DEFAULT_THRESHOLD,
     GESTURES,
     EVENT,
+    TYPEOF,
     DOMAIN_ENTITY_REGEXP
 } from '@constants';
 import {
@@ -54,6 +56,9 @@ class HomeAssistantSecretTaps {
                         this._ha = homeAssistant as HomeAssistant;
                         this._main = homeAssistantMain as HTMLElement;
 
+                        this._log('configuration loaded, printing configuration...');
+                        this._log(this._config);
+
                         getPromisableElement(
                             () => this._ha.hass,
                             (hass: HassObject): boolean => !!(
@@ -63,6 +68,8 @@ class HomeAssistantSecretTaps {
                         )
                             .then((hass: HassObject) => {
                                 this._secrets = getSecrets(this._config, hass.user);
+                                this._log(`secrets queried for ${hass.user.name}, printing secrets...`);
+                                this._log(this._secrets);
                                 this._start();
                             });
 
@@ -88,6 +95,16 @@ class HomeAssistantSecretTaps {
     private _taps: HammerManager;
     private _stack: string[] | null;
     private _eventTimeoutId: number;
+
+    private _log(message: string | object): void {
+        if (this._config.debug) {
+            if (typeof message === TYPEOF.OBJECT) {
+                console.log(`${NAMESPACE}: ${JSON.stringify(message, null, 4)}`);
+            } else {
+                console.log(`${NAMESPACE}: ${message}`);
+            }
+        }
+    }
 
     private _callService(secret: ServiceSecret): void {
         const { service, data = {} } = secret;
@@ -190,22 +207,35 @@ class HomeAssistantSecretTaps {
         }
 
         if (this._config.notification) {
+
+            this._log(
+                executed
+                    ? 'secret executed!'
+                    : 'secret NOT executed! secret with errors'
+            );
+
+            this._log(secret);
+
             this._showNotification(
                 executed
                     ? 'secret taps successfully executed!'
                     : 'secret taps failed! Review your secret config!'
             );
+
         }
 
     }
 
     private _processTaps(): void {
 
+        this._log('checking if there is a scret with the previous event stack');
+
         const secret = this._secrets.find((secret: Secret): boolean => {
             return compareArrays(this._stack, secret.taps);
         });
 
         if (secret) {
+            this._log('secret found, executing secret');
             this._execute(secret);
         }
 
@@ -213,11 +243,16 @@ class HomeAssistantSecretTaps {
 
     private _trackTap(event: HammerInput): void {
 
+        this._log(`event ${event.type} fired`);
+
         window.clearTimeout(this._eventTimeoutId);
 
         this._stack = this._stack || [];
 
         this._stack.push(event.type);
+
+        this._log('printig event stack...');
+        this._log(this._stack.join(' » '));
 
         this._eventTimeoutId = window.setTimeout(() => {
 
@@ -230,8 +265,6 @@ class HomeAssistantSecretTaps {
     }
 
     private _start(): void {
-
-        console.log('config', this._config);
 
         delete Hammer.defaults.cssProps;
 
