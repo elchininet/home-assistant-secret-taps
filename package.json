@@ -25,13 +25,13 @@
     "@stylistic/eslint-plugin-js": "^1.6.3",
     "@types/hammerjs": "^2.0.45",
     "@types/js-yaml": "^4.0.9",
-    "@types/node": "^20.11.24",
-    "@typescript-eslint/eslint-plugin": "^7.1.0",
-    "@typescript-eslint/parser": "^7.1.0",
+    "@types/node": "^20.11.25",
+    "@typescript-eslint/eslint-plugin": "^7.1.1",
+    "@typescript-eslint/parser": "^7.1.1",
     "eslint": "^8.56.0",
-    "rollup": "^4.12.0",
+    "rollup": "^4.12.1",
     "rollup-plugin-ts": "^3.4.5",
-    "typescript": "^5.3.3"
+    "typescript": "^5.4.2"
   },
   "dependencies": {
     "hammerjs": "^2.0.8",
