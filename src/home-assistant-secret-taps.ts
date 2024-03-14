@@ -98,11 +98,10 @@ class HomeAssistantSecretTaps {
 
     private _log(message: string | object): void {
         if (this._config.debug) {
-            if (typeof message === TYPEOF.OBJECT) {
-                console.log(`${NAMESPACE}: ${JSON.stringify(message, null, 4)}`);
-            } else {
-                console.log(`${NAMESPACE}: ${message}`);
-            }
+            const logMessage = typeof message === TYPEOF.OBJECT
+                ? JSON.stringify(message, null, 4)
+                : message;
+            console.log(`${NAMESPACE}: ${logMessage}`);
         }
     }
 
@@ -270,18 +269,26 @@ class HomeAssistantSecretTaps {
 
         this._taps = new Hammer.Manager(this._ha);
 
+        const commonProps = {
+            threshold: 10,
+            posThreshold: 15
+        };
+
         const tripleTap = new Hammer.Tap({
             event: GESTURES.TRIPLE_TAP,
-            taps: 3
+            taps: 3,
+            ...commonProps
         });
 
         const doubleTap = new Hammer.Tap({
             event: GESTURES.DOUBLE_TAP,
-            taps: 2
+            taps: 2,
+            ...commonProps
         });
 
         const singleTap = new Hammer.Tap({
-            event: GESTURES.TAP
+            event: GESTURES.TAP,
+            ...commonProps
         });
 
         this._taps.add([
