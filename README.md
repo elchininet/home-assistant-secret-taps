@@ -15,19 +15,19 @@ Even if those elements could be shown switching some entity, the admin needs to 
 
 But what about showing the desired element, navigating to the desired dashboard, or switching the desired entity not with an UI element but with something hidden and only known by the admin/owner?
 
-This is when `Home Assistant Secret Taps` comes to scene, you can configure "secrets" based on secuences of taps on the screen and perform certain actions when these secret taps are executed. Call a service, open the more-info dialog of an entity or navigating to a dashboard are the main actions that could be performed only touching in any part of the screen using the correct secuence.
+This is when `Home Assistant Secret Taps` comes to scene, you can configure "secrets" based on sequences of taps on the screen and perform certain actions when these secret taps are executed. Call a service, open the more-info dialog of an entity or navigating to a dashboard are the main actions that could be performed only touching in any part of the screen using the correct sequence.
 
 **Do you have the header hidden and to show it you need to change an `input_boolean`?**
 
- You can configure a secuence of taps that will call the `toggle` service on that entity to show the header, then you can perform the changes that you want, and turn it off again using the same tap secuence. 
+ You can configure a sequence of taps that will call the `toggle` service on that entity to show the header, then you can perform the changes that you want, and turn it off again using the same tap sequence. 
 
 **Do you have the sidebar menu-button hidden to avoid someone else being able to open it and navigate to other dashboards?**
 
-You can configure a secret secuence of taps that opens and closes the sidebar without interacting with any visible element.
+You can configure a secret sequence of taps that opens and closes the sidebar without interacting with any visible element.
 
 **Do you have a hidden subview that is not linked from any other view and which is full of entities to administrate your Home Assistant instance?**
 
-You could navigate to that subview without clicking on a link, just executing the correct tap secuence that you configured for that.
+You could navigate to that subview without clicking on a link, just executing the correct tap sequence that you configured for that.
 
 These are just common hypotehtical use cases but I am sure that you will ideate your own. Just configure and perform your secrets taps and execute your actions without any visible interactive element and without letting any trace 🥷
 
@@ -106,7 +106,7 @@ All secrets should have these properties:
 
 | Property           | Type             | Required |Default      | Description |
 | ------------------ | ---------------- | -------- | ----------- | ----------- |
-| taps               | Array of `Tap`    | yes      | -           | Secuence of taps |
+| taps               | Array of `Tap`    | yes      | -           | Sequence of taps |
 | action             | String           | yes      | -           | Action to perform |
 
 >Note: you should always configure the `taps` property using multiple taps and not a very common taps pattern. If you set up an action to be performed with a single `tap`, it will be executed every time that you tap on the screen, always.
@@ -117,7 +117,7 @@ All secrets should have these properties:
 * `double-tap`: two consecutive taps on the screen
 * `triple-tap`: three consecutive taps on the screen
 
-**Secuence of taps example**
+**Sequence of taps example**
 
 ```yaml
 taps:
