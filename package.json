@@ -10,11 +10,12 @@
   "scripts": {
     "build": "rollup --config rollup.config.js --bundleConfigAsCjs",
     "lint": "eslint \"src/**/*.ts\"",
-    "lint:fix": "yarn lint --fix",
+    "lint:fix": "pnpm lint --fix",
     "test:ts": "tsc --noEmit",
-    "test:all": "yarn lint && yarn test:ts",
-    "prepare": "yarn build",
-    "prepublishOnly": "yarn test:ts",
+    "test:all": "pnpm lint && pnpm test:ts",
+    "preinstall": "npx -y only-allow pnpm",
+    "prepare": "pnpm build",
+    "prepublishOnly": "pnpm test:ts",
     "version": "git add .",
     "postversion": "git push && git push --tags"
   },
@@ -31,6 +32,7 @@
     "eslint": "^8.56.0",
     "rollup": "^4.13.0",
     "rollup-plugin-ts": "^3.4.5",
+    "tslib": "^2.6.2",
     "typescript": "^5.4.3"
   },
   "dependencies": {
