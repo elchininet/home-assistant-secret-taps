@@ -28,7 +28,7 @@ timer:
     duration: "00:01:00"
 
 shell_command:
-  copy_config: /config/scripts/copy_home-assistant_secret_taps_config.sh {{json}}
+  copy_config: /config/scripts/copy_home-assistant_secret_taps_config.sh {{yaml}}
 
 # Load frontend themes from the themes folder
 frontend:

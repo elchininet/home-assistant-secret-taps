@@ -10,7 +10,7 @@ export const haConfigRequest = async (file: string, retries = 0) => {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                json: file
+                yaml: file
             })
         }
     ).then((response: Response) => {
