@@ -12,6 +12,8 @@
     "lint": "eslint \"src/**/*.ts\"",
     "lint:fix": "pnpm lint --fix",
     "test:ts": "tsc --noEmit",
+    "test:run": "dotenv playwright test",
+    "test:open": "playwright test --ui",
     "test:all": "pnpm lint && pnpm test:ts",
     "preinstall": "npx -y only-allow pnpm",
     "prepare": "pnpm build",
@@ -20,6 +22,7 @@
     "postversion": "git push && git push --tags"
   },
   "devDependencies": {
+    "@playwright/test": "^1.42.1",
     "@rollup/plugin-json": "^6.1.0",
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@rollup/plugin-terser": "^0.4.4",
@@ -29,8 +32,12 @@
     "@types/node": "^20.12.2",
     "@typescript-eslint/eslint-plugin": "^7.4.0",
     "@typescript-eslint/parser": "^7.4.0",
+    "dotenv-cli": "^7.4.1",
     "eslint": "^8.56.0",
+    "nyc": "^15.1.0",
+    "playwright-test-coverage": "^1.2.12",
     "rollup": "^4.13.2",
+    "rollup-plugin-istanbul": "^5.0.0",
     "rollup-plugin-ts": "^3.4.5",
     "tslib": "^2.6.2",
     "typescript": "^5.4.3"
