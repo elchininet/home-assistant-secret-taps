@@ -32,7 +32,7 @@ export const randomId = (): string => Math.random().toString(16).slice(2);
 
 export const fetchConfig = async (): Promise<Config> => {
     const errorNotFound = `${NAMESPACE}: YAML config file not found.`;
-    const errorSuffix = 'Make sure you have valid config in /config/www/secret-gestures.yaml file.';
+    const errorSuffix = 'Make sure you have valid config in /config/www/secret-taps.yaml file.';
     return new Promise<Config>((resolve) => {
         fetch(`${CONFIG_PATH}?hash=${randomId()}`)
             .then((response: Response) => {
