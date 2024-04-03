@@ -4,6 +4,7 @@ import {
     BASE_URL,
     SELECTORS,
     MAXIMUM_RETRIES,
+    RETRY_DELAY,
     CONFIG_PATH
 } from './constants';
 
@@ -29,7 +30,13 @@ export const haConfigRequest = async (file: string = '', retries = 0) => {
         if (response.ok || retries >= MAXIMUM_RETRIES) {
             return response;
         }
-        return haConfigRequest(file, retries + 1);
+        return new Promise((resolve) => {
+            setTimeout(() => {
+                resolve(
+                    haConfigRequest(file, retries + 1)
+                );
+            }, RETRY_DELAY);
+        });
     });
 };
 
