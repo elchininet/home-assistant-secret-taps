@@ -5,7 +5,9 @@
 ### Execute Home Assistant actions just tapping on your device.
 
 [![Hacs Custom](https://img.shields.io/badge/HACS-Custom-41BDF5.svg)](https://github.com/hacs/integration)
+[![HACS Action](https://github.com/elchininet/home-assistant-secret-taps/actions/workflows/hacs.yaml/badge.svg)](https://github.com/elchininet/home-assistant-secret-taps/actions/workflows/hacs.yaml)
 [![Tests](https://github.com/elchininet/home-assistant-secret-taps/actions/workflows/tests.yaml/badge.svg)](https://github.com/elchininet/home-assistant-secret-taps/actions/workflows/tests.yaml)
+[![Coverage Status](https://coveralls.io/repos/github/elchininet/home-assistant-secret-taps/badge.svg?branch=master)](https://coveralls.io/github/elchininet/home-assistant-secret-taps?branch=master)
 
 >Do not take this plugin as a security measure. Anything on client side is insecure by default and anyone with the minimum knowldge and with access to the device can inspect the code, the network tab and check your secrets. This is more intended to avoid kids/spouse/friends to interact with certain elements/entities of Home Assistant.
 
