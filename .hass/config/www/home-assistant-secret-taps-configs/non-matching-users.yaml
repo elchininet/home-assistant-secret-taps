@@ -1,6 +1,8 @@
 enabled: true
 profiles:
-  - user: Test
+  - user:
+    - ElChiniNet
+    - Palaus
     secrets:
       - taps:
         - tap
@@ -10,11 +12,15 @@ profiles:
         service: input_boolean.toggle
         data:
           entity_id: input_boolean.my_switch
+  - admin: false
+    secrets:
       - taps:
         - tap
         - triple-tap
         - tap
         action: toggle-menu
+  - owner: false
+    secrets:
       - taps:
         - double-tap
         - tap
@@ -22,8 +28,3 @@ profiles:
         - tap
         action: more-info
         entity_id: timer.laundry
-      - taps:
-        - triple-tap
-        - tap
-        action: navigate
-        navigation_path: /config/dashboard

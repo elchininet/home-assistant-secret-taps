@@ -4,7 +4,10 @@ export const RETRY_DELAY = 200;
 export const CONFIG_PATH = 'local/secret-taps.yaml*';
 
 export const CONFIG_FILES = {
-    BASIC: 'basic'
+    BASIC: 'basic',
+    NON_MATCHING_USERS: 'non-matching-users',
+    MATCHING_USERS: 'matching-users',
+    NOT_ENABLED: 'not-enabled'
 };
 
 export const SELECTORS = {
