@@ -1,5 +1,6 @@
 export const BASE_URL = 'http://host.docker.internal:8123';
 export const MAXIMUM_RETRIES = 10;
+export const RETRY_DELAY = 200;
 export const CONFIG_PATH = 'local/secret-taps.yaml*';
 
 export const CONFIG_FILES = {
