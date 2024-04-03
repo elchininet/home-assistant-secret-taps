@@ -157,7 +157,7 @@ entity_id: sun.sun
 
 ```yaml
 action: navigate
-navigation_path: config/dashboard
+navigation_path: /config/dashboard
 ## Optional parameter. It is false by default
 ## Whether to replace the current page in the history 
 navigation_replace: true 
@@ -201,7 +201,7 @@ profiles:
         - double-tap
         - tap
         action: navigate
-        navigation_path: config/dashboard
+        navigation_path: /config/dashboard
   ## This profile will match only with non-admin users
   - admin: false
     secrets:
