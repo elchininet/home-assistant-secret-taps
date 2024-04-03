@@ -1,0 +1,9 @@
+enabled: false
+profiles:
+  - user: Test
+    secrets:
+      - taps:
+        - tap
+        - triple-tap
+        - tap
+        action: toggle-menu
