@@ -1,7 +1,5 @@
 export const NAMESPACE = 'home-assistant-secret-taps';
 export const CONFIG_PATH = '/local/secret-taps.yaml';
-export const MAX_ATTEMPTS = 100;
-export const RETRY_DELAY = 50;
 
 export const DEFAULT_THRESHOLD = 1000;
 

@@ -13,8 +13,6 @@ import {
 import {
     NAMESPACE,
     CONFIG_PATH,
-    MAX_ATTEMPTS,
-    RETRY_DELAY,
     TYPEOF,
     DOMAIN_ENTITY_REGEXP
 } from '@constants';
@@ -46,7 +44,7 @@ export const fetchConfig = async (): Promise<Config> => {
                             resolve(config);
                         })
                         .catch((error: Error) => {
-                            throw Error(`${NAMESPACE}: ${error?.message || error}`);
+                            throw Error(`${NAMESPACE}: ${error.message}`);
                         });
                 } else {
                     throw Error(`${errorNotFound}\n${errorSuffix}`);
@@ -55,32 +53,6 @@ export const fetchConfig = async (): Promise<Config> => {
             .catch(() => {
                 throw Error(`${errorNotFound}\n${errorSuffix}`);
             });
-    });
-};
-
-export const getPromisableElement = <T>(
-    getElement: () => T,
-    check: (element: T) => boolean
-): Promise<T> => {
-    return new Promise<T>((resolve) => {
-        let attempts = 0;
-        const select = () => {
-            const element: T = getElement();
-            if (element && check(element)) {
-                resolve(element);
-            } else {
-                attempts++;
-                // The else clause is an edge case that should not happen
-                // Very hard to reproduce so it cannot be covered
-                /* istanbul ignore else */
-                if (attempts < MAX_ATTEMPTS) {
-                    setTimeout(select, RETRY_DELAY);
-                } else {
-                    resolve(element);
-                }
-            }
-        };
-        select();
     });
 };
 

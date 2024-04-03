@@ -3,3 +3,11 @@
 /dist
 /.yalc
 /yalc.lock
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+.hass/config/www/home-assistant-secret-taps-plugin.js
+/.nyc_output
+/coverage
+/.env

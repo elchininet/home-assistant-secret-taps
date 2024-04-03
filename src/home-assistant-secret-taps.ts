@@ -5,7 +5,6 @@ import {
 } from 'home-assistant-query-selector';
 import {
     HomeAssistant,
-    HassObject,
     Config,
     Secret,
     ServiceSecret,
@@ -23,7 +22,6 @@ import {
 import {
     logVersionToConsole,
     fetchConfig,
-    getPromisableElement,
     getSecrets,
     isServiceSecret,
     isMoreInfoSecret,
@@ -59,19 +57,10 @@ class HomeAssistantSecretTaps {
                         this._log('configuration loaded, printing configuration...');
                         this._log(this._config);
 
-                        getPromisableElement(
-                            () => this._ha.hass,
-                            (hass: HassObject): boolean => !!(
-                                hass?.callService &&
-                                hass.user
-                            )
-                        )
-                            .then((hass: HassObject) => {
-                                this._secrets = getSecrets(this._config, hass.user);
-                                this._log(`secrets queried for ${hass.user.name}, printing secrets...`);
-                                this._log(this._secrets);
-                                this._start();
-                            });
+                        this._secrets = getSecrets(this._config, this._ha.hass.user);
+                        this._log(`secrets queried for ${this._ha.hass.user.name}, printing secrets...`);
+                        this._log(this._secrets);
+                        this._start();
 
                     }
 

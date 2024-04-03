@@ -1,0 +1,31 @@
+enabled: true
+profiles:
+  - user:
+    - Test
+    secrets:
+      - taps:
+        - tap
+        - double-tap
+        - tap
+        action: call-service
+        service: input_boolean.toggle
+        data:
+          entity_id: input_boolean.my_switch
+      - taps:
+        - double-tap
+        - tap
+        - double-tap
+        - tap
+        action: more-info
+        entity_id: timer.laundry
+      - taps:
+        - triple-tap
+        - tap
+        action: navigate
+        navigation_path: /config/dashboard
+      - taps:
+        - tap
+        - triple-tap
+        - tap
+        action: toggle-menu
+      

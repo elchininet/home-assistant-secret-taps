@@ -21,8 +21,17 @@ jobs:
         with:
           node-version: '18'
           cache: 'pnpm'
+      - name: Cache Docker images
+        uses: ScribeMD/docker-cache@0.3.7
+        with:
+          key: docker-v1-${{ runner.os }}-${{ hashFiles('.hass/config/.HA_VERSION', '.playwright_docker_version') }}
       - name: Install deps
         run: pnpm install
+      - name: E2E tests
+        run: |
+          touch .env
+          echo HA_TOKEN=${{ secrets.HA_TOKEN }} >> .env
+          pnpm test:all
       - name: Build Changelog
         id: build_changelog
         uses: mikepenz/release-changelog-builder-action@v3

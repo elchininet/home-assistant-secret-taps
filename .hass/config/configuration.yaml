@@ -1,0 +1,36 @@
+# Loads default set of integrations. Do not remove.
+default_config:
+
+homeassistant:
+  auth_providers:
+    - type: trusted_networks
+      trusted_networks:
+        - 0.0.0.0/0
+      allow_bypass_login: true
+
+# Text to speech
+tts:
+  - platform: google_translate
+
+automation: !include automations.yaml
+script: !include scripts.yaml
+scene: !include scenes.yaml
+
+lovelace:
+  mode: yaml
+
+input_boolean:
+  my_switch:
+    name: My Switch
+
+timer:
+  laundry:
+    duration: "00:01:00"
+
+shell_command:
+  copy_config: /config/scripts/copy_home-assistant_secret_taps_config.sh {{yaml}}
+
+# Load frontend themes from the themes folder
+frontend:
+  themes: !include_dir_merge_named themes
+  extra_module_url: /local/home-assistant-secret-taps-plugin.js

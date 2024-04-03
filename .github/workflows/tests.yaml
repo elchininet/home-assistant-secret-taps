@@ -22,7 +22,28 @@ jobs:
         with:
           node-version: '18'
           cache: 'pnpm'
+      - name: Cache Docker images
+        uses: ScribeMD/docker-cache@0.3.7
+        with:
+          key: docker-v1-${{ runner.os }}-${{ hashFiles('.hass/config/.HA_VERSION', '.playwright_docker_version') }}
       - name: Install
         run: pnpm install
-      - name: Tests
-        run: pnpm test:all
+      - name: E2E tests
+        run: |
+          touch .env
+          echo HA_TOKEN=${{ secrets.HA_TOKEN }} >> .env
+          pnpm test:all
+      - name: Create coverage
+        run: pnpm coverage:report
+      - name: Coveralls
+        uses: coverallsapp/github-action@master
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: test-report
+          path: |
+            playwright-report/
+            coverage/
+          retention-days: 30
