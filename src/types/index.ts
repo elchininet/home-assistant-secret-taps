@@ -1,5 +1,3 @@
-import Hammer from 'hammerjs';
-
 export interface User {
     is_admin: boolean;
     is_owner: boolean;

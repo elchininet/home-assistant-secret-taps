@@ -9,7 +9,8 @@ profiles:
         - tap
         action: call-service
         service: input_boolean.toggle
-        entity_id: input_boolean.my_switch
+        data:
+          entity_id: input_boolean.my_switch
       - taps:
         - double-tap
         - tap
@@ -21,18 +22,10 @@ profiles:
         - triple-tap
         - tap
         action: navigate
-        navigation_path: config/dashboard
-  - admin: false
-    secrets:
-      - taps:
-        - double-tap
-        - tap
-        - double-tap
-        action: toggle-menu
-  - admin: true
-    secrets:
+        navigation_path: /config/dashboard
       - taps:
         - tap
         - triple-tap
         - tap
         action: toggle-menu
+      

@@ -26,6 +26,7 @@ export default [
         plugins,
         input: 'src/checker.ts',
         output: {
+            name: 'homeAssistantSecretTapsChecker',
             file: 'dist/home-assistant-secret-taps.js',
             format: 'iife'
         }
