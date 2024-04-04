@@ -27,3 +27,10 @@ profiles:
         - tap
         action: navigate
         navigation_path: /config/dashboard
+      - taps:
+        - triple-tap
+        - tap
+        - triple-tap
+        action: navigate
+        navigation_path: /media-browser/browser
+        navigation_replace: true

@@ -119,20 +119,15 @@ class HomeAssistantSecretTaps {
 
     private _navigate(secret: NavigateSecret): void {
         const { navigation_path, navigation_replace = false } = secret;
+        const params: Parameters<typeof window.history.replaceState> = [
+            null,
+            '',
+            navigation_path
+        ];
         if (navigation_replace) {
-            window.history.replaceState(
-                window.history.state?.root
-                    ? { root: true }
-                    : null,
-                '',
-                navigation_path
-            );
+            window.history.replaceState(...params);
         } else {
-            window.history.pushState(
-                null,
-                '',
-                navigation_path
-            );
+            window.history.pushState(...params);
         }
         window.dispatchEvent(
             new CustomEvent(

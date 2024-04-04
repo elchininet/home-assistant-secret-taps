@@ -99,6 +99,28 @@ test('Navigate to a panel', async ({ page }) => {
     await tap(page);
     await page.waitForTimeout(1500);
 
-    await expect(page.url()).toBe(`${BASE_URL}/config/dashboard`);
+    expect(page.url()).toBe(`${BASE_URL}/config/dashboard`);
+
+    await page.goBack();
+
+    expect(page.url()).toBe(`${BASE_URL}/lovelace/home`);
+
+});
+
+test('Navigate to a panel replacing history', async ({ page }) => {
+
+    await pageVisit(page);
+
+    await moveToHeader(page);
+    await tripleTap(page);
+    await tap(page);
+    await tripleTap(page);
+    await page.waitForTimeout(1500);
+
+    expect(page.url()).toBe(`${BASE_URL}/media-browser/browser`);
+
+    await page.goBack();
+
+    expect(page.url()).not.toBe(`${BASE_URL}/lovelace/home`);
 
 });
