@@ -19,5 +19,5 @@ export const SELECTORS = {
     MORE_INFO_DIALOG: 'ha-dialog',
     DIALOG_HEADER_TITLE: 'ha-dialog-header span[slot="title"]',
     SIDEBAR: 'ha-sidebar',
-    TOAST: 'ha-toast'
+    TOAST: '.mdc-snackbar__label'
 };
