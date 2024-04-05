@@ -9,6 +9,8 @@
 [![Tests](https://github.com/elchininet/home-assistant-secret-taps/actions/workflows/tests.yaml/badge.svg)](https://github.com/elchininet/home-assistant-secret-taps/actions/workflows/tests.yaml)
 [![Coverage Status](https://coveralls.io/repos/github/elchininet/home-assistant-secret-taps/badge.svg?branch=master)](https://coveralls.io/github/elchininet/home-assistant-secret-taps?branch=master)
 
+[![Home Assistant Nightly Beta Tests](https://github.com/elchininet/home-assistant-secret-taps/actions/workflows/ha-beta-tests.yaml/badge.svg)](https://github.com/elchininet/home-assistant-secret-taps/actions/workflows/ha-beta-tests.yaml)
+
 >Do not take this plugin as a security measure. Anything on client side is insecure by default and anyone with the minimum knowldge and with access to the device can inspect the code, the network tab and check your secrets. This is more intended to avoid kids/spouse/friends to interact with certain elements/entities of Home Assistant.
 
 In Home Assistant, it is very common to hide or restrict elements from non-admins users. There are multiple HACS plugins that are used to restrict critical sections, dasboards, UI elements, cards, etc. from unauthorized users ([kiosk-mode], [custom-sidebar], [lovelace-state-switch], are some of them). This is a recurrent task in kiosk devices that are intended to be used by the whole family or by a large group of users. The issue comes when the owner or admin wants to interact with those elements on the device because these elements are hidden also for them.
