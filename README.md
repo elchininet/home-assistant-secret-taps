@@ -47,7 +47,7 @@ You can install the plugin manually or through [HACS], not both. If you install 
 6. Click on `Add`
 7. Click on `Explore and download repositories` button in the bottom-right of the screen
 8. Search for `home-assistant-secret-taps` and install it
-9. Add the url of the plugin as an [extra_module_url] in your `configuration.yaml` (unless you use [browser_mod]):
+9. Add the url of the plugin as an [extra_module_url] in your `configuration.yaml`:
 
 ```yaml
 frontend:
@@ -62,7 +62,7 @@ frontend:
 
 1. Download the latest [home-assistant-secret-taps release]
 2. Copy `home-assistant-secret-taps-plugin.js` into `<config directory>/www/`
-3. Add the url of the plugin as an [extra_module_url] in your `configuration.yaml` (unless you use [browser_mod]):
+3. Add the url of the plugin as an [extra_module_url] in your `configuration.yaml`:
 
 ```yaml
 frontend:
@@ -217,6 +217,5 @@ profiles:
 [lovelace-state-switch]: https://github.com/thomasloven/lovelace-state-switch
 [HACS]: https://hacs.xyz
 [extra_module_url]: https://www.home-assistant.io/integrations/frontend/#extra_module_url
-[browser_mod]: https://github.com/thomasloven/hass-browser_mod
 [home-assistant-secret-taps release]: https://github.com/elchininet/home-assistant-secret-taps/releases
 [example secret-taps.yaml]: https://raw.githubusercontent.com/elchininet/home-assistant-secret-taps/master/secret-taps.yaml
