@@ -8,6 +8,7 @@
 /blob-report/
 /playwright/.cache/
 .hass/config/www/home-assistant-secret-taps-plugin.js
+.hass/config/www/secret-taps.yaml
 /.nyc_output
 /coverage
 /.env

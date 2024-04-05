@@ -189,15 +189,15 @@ class HomeAssistantSecretTaps {
 
         }
 
+        this._log(
+            executed
+                ? 'secret executed!'
+                : 'secret NOT executed! secret with errors'
+        );
+
+        this._log(secret);
+
         if (this._config.notification) {
-
-            this._log(
-                executed
-                    ? 'secret executed!'
-                    : 'secret NOT executed! secret with errors'
-            );
-
-            this._log(secret);
 
             this._showNotification(
                 executed
