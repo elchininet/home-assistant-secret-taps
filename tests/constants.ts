@@ -9,7 +9,8 @@ export const CONFIG_FILES = {
     MATCHING_USERS: 'matching-users',
     NOT_ENABLED: 'not-enabled',
     NOTIFICATIONS_DISABLED: 'notifications-disabled',
-    NOTIFICATIONS_ENABLED: 'notifications-enabled'
+    NOTIFICATIONS_ENABLED: 'notifications-enabled',
+    DEBUG: 'debug'
 };
 
 export const SELECTORS = {

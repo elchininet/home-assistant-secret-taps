@@ -1,0 +1,17 @@
+enabled: true
+debug: true
+profiles:
+  - user: Test
+    secrets:
+      - taps:
+        - double-tap
+        - tap
+        - tap
+        action: call-service
+        service: input_boolean.toggle
+        data:
+          entity_id: input_boolean.my_switch
+      - taps:
+        - triple-tap
+        - tap
+        action: invalid-service
