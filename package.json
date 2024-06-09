@@ -37,7 +37,7 @@
     "@stylistic/eslint-plugin-js": "^2.1.0",
     "@types/hammerjs": "^2.0.45",
     "@types/js-yaml": "^4.0.9",
-    "@types/node": "^20.13.0",
+    "@types/node": "^20.14.2",
     "dotenv-cli": "^7.4.2",
     "eslint": "^9.4.0",
     "nyc": "^15.1.0",
@@ -45,9 +45,9 @@
     "rollup": "^4.18.0",
     "rollup-plugin-istanbul": "^5.0.0",
     "rollup-plugin-ts": "^3.4.5",
-    "tslib": "^2.6.2",
+    "tslib": "^2.6.3",
     "typescript": "^5.4.5",
-    "typescript-eslint": "^7.11.0"
+    "typescript-eslint": "^7.12.0"
   },
   "dependencies": {
     "hammerjs": "^2.0.8",
