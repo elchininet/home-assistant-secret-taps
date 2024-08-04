@@ -8,7 +8,7 @@ import {
     doubleTap
 } from './utilities';
 
-const TOAST_FAILURE = 'Failed to call service input_boolean/toggle';
+const TOAST_FAILURE = /^Failed.*?input_boolean\/toggle.*$/;
 const VISIBILITY_OPTIONS = { timeout: 0 };
 
 test.describe('Notifications disabled', () => {
