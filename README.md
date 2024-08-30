@@ -39,7 +39,30 @@ These are just common hypotehtical use cases but I am sure that you will ideate 
 
 You can install the plugin manually or through [HACS], not both. If you install the plugin using the two installations methods you could have issues or errors.
 
-### Through HACS
+### Through HACS (v2 or greather)
+
+>Note: if your version of `HACS` is lower than `v2` consult the section [Through old HACS versions (< v2)](#through-old-hacs-versions--v2)
+
+1. Go to `HACS` dashboard
+2. Click on the three-dots icon in the top-right corner
+3. Select `Custom repositories`
+4. In the `Repository` field insert `https://github.com/elchininet/custom-sidebar` and in the `Type` select `Dashboard`
+5. Click on `Add`
+6. Search for `home-assistant-secret-taps` and click on it
+7. On the plugin page, click on the `Download` yellow button in the bottom-right corner
+8. Click on `Download` in the more-info dialog
+9. Add the url of the plugin as an [extra_module_url] in your `configuration.yaml`:
+
+```yaml
+frontend:
+  extra_module_url:
+    - /hacsfiles/home-assistant-secret-taps/home-assistant-secret-taps-plugin.js?v1.0.0
+```
+
+10. Make sure you add `home-assistant-secret-taps-plugin.js` and not `home-assistant-secret-taps.js` and make sure you add the correct version at the end of the URL (e.g. `?v=1.0.0`) because in this way you make Home Assistant to load the new version instead of a version stored in cache
+11. Restart Home Assistant
+
+### Through old HACS versions (< v2)
 
 1. Go to `HACS` dashboard
 2. Go to `Frontend`
@@ -58,7 +81,7 @@ frontend:
 ```
 
 10. Make sure you add `home-assistant-secret-taps-plugin.js` and not `home-assistant-secret-taps.js` and make sure you add the correct version at the end of the URL (e.g. `?v=1.0.0`) because in this way you make Home Assistant to load the new version instead of a version stored in cache
-12. Restart Home Assistant
+11. Restart Home Assistant
 
 ### Manual installation
 
