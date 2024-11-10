@@ -14,6 +14,9 @@ importers:
       hammerjs:
         specifier: ^2.0.8
         version: 2.0.8
+      home-assistant-javascript-templates:
+        specifier: ^5.5.0
+        version: 5.5.0
       home-assistant-query-selector:
         specifier: ^4.3.0
         version: 4.3.0
@@ -51,6 +54,9 @@ importers:
       eslint:
         specifier: ^9.14.0
         version: 9.14.0
+      globals:
+        specifier: ^15.12.0
+        version: 15.12.0
       nyc:
         specifier: ^17.1.0
         version: 17.1.0
@@ -964,6 +970,10 @@ packages:
     resolution: {integrity: sha512-oahGvuMGQlPw/ivIYBjVSrWAfWLBeku5tpPE2fOPLi+WHffIWbuh2tCjhyQhTBPMf5E9jDEH4FOmTYgYwbKwtQ==}
     engines: {node: '>=18'}
 
+  globals@15.12.0:
+    resolution: {integrity: sha512-1+gLErljJFhbOVyaetcwJiJ4+eLe45S2E7P5UiZ9xGfeq3ATQf5DOv9G7MH3gGbKQLkzmNh2DxfZwLdw+j6oTQ==}
+    engines: {node: '>=18'}
+
   graceful-fs@4.2.11:
     resolution: {integrity: sha512-RbJ5/jmFcNNCcDV5o9eTnBLJ/HszWV0P73bc+Ff4nS/rJj+YaS6IGyiOL0VoBYX+l1Wrl3k63h/KrH+nhJ0XvQ==}
 
@@ -993,6 +1003,9 @@ packages:
   helpertypes@0.0.19:
     resolution: {integrity: sha512-J00e55zffgi3yVnUp0UdbMztNkr2PnizEkOe9URNohnrNhW5X0QpegkuLpOmFQInpi93Nb8MCjQRHAiCDF42NQ==}
     engines: {node: '>=10.0.0'}
+
+  home-assistant-javascript-templates@5.5.0:
+    resolution: {integrity: sha512-lbjNMjeZeYSu3qBCu5/yRTdH+g1Oz5vy6RPh8V8114M9c5BIeNiD2nRB2CT6OB4A+UjMNPU1bPldzgj+ahW69Q==}
 
   home-assistant-query-selector@4.3.0:
     resolution: {integrity: sha512-L+TfdKKlqKAijIp/dWYKmtQWmTT+S9CZOM43L1lu1azPwVqIhJ2nlzf4GZ1MpWlGjY0+kn4sip0TYxvSCpZeeg==}
@@ -2540,6 +2553,8 @@ snapshots:
 
   globals@14.0.0: {}
 
+  globals@15.12.0: {}
+
   graceful-fs@4.2.11: {}
 
   graphemer@1.4.0: {}
@@ -2560,6 +2575,10 @@ snapshots:
       function-bind: 1.1.2
 
   helpertypes@0.0.19: {}
+
+  home-assistant-javascript-templates@5.5.0:
+    dependencies:
+      get-promisable-result: 1.0.1
 
   home-assistant-query-selector@4.3.0:
     dependencies:

@@ -3,6 +3,11 @@ import {
     HAQuerySelectorEvent,
     OnListenDetail
 } from 'home-assistant-query-selector';
+import HomeAssistantJavaScriptTemplates,
+{
+    HomeAssistantJavaScriptTemplatesRenderer,
+    HomeAssistant as HomeAssistantExtended
+} from 'home-assistant-javascript-templates';
 import {
     HomeAssistant,
     Config,
@@ -27,6 +32,7 @@ import {
     isMoreInfoSecret,
     isNavigateSecret,
     isToggleMenuSecret,
+    isJavaScriptSecret,
     compareArrays
 } from '@utilities';
 import 'hammerjs';
@@ -60,7 +66,20 @@ class HomeAssistantSecretTaps {
                         this._secrets = getSecrets(this._config, this._ha.hass.user);
                         this._log(`secrets queried for ${this._ha.hass.user.name}, printing secrets...`);
                         this._log(this._secrets);
-                        this._start();
+
+                        const haJsTemplates = new HomeAssistantJavaScriptTemplates(
+                            homeAssistant as HomeAssistantExtended,
+                            {
+                                autoReturn: false
+                            }
+                        );
+
+                        haJsTemplates.getRenderer()
+                            .then((renderer: HomeAssistantJavaScriptTemplatesRenderer): void => {
+                                this._renderer = renderer;
+                                this._log('JavaScript renderer initialised, starting the plugin');
+                                this._start();
+                            });
 
                     }
 
@@ -80,10 +99,12 @@ class HomeAssistantSecretTaps {
     private _threshold: number;
     private _ha: HomeAssistant;
     private _main: HTMLElement;
+    private _renderer: HomeAssistantJavaScriptTemplatesRenderer;
     private _secrets: Secret[];
     private _taps: HammerManager;
     private _stack: string[] | null;
     private _eventTimeoutId: number;
+
 
     private _log(message: string | object): void {
         if (this._config.debug) {
@@ -149,6 +170,10 @@ class HomeAssistantSecretTaps {
         );
     }
 
+    private _executeJavaScript(code: string): void {
+        this._renderer.renderTemplate(code);
+    }
+
     private _showNotification(message: string): void {
         this._ha.dispatchEvent(
             new CustomEvent(
@@ -185,6 +210,11 @@ class HomeAssistantSecretTaps {
         } else if (isToggleMenuSecret(secret)) {
 
             this._toggleMenu();
+            executed = true;
+
+        } else if (isJavaScriptSecret(secret)) {
+
+            this._executeJavaScript(secret.code.trim());
             executed = true;
 
         }

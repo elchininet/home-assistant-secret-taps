@@ -159,6 +159,7 @@ taps:
 * `more-info`: action to open a more-info dialog
 * `navigate`: action to navigate to a certain path
 * `toggle-menu`: action to open or close the sidebar
+* `javascript`: action to execute a `JavaScript` code block
 
 Each `secret` can be any of the next ones:
 
@@ -193,6 +194,18 @@ navigation_replace: true
 ```yaml
 action: toggle-menu
 ```
+
+**JavaScript secret example**
+
+```yaml
+action: javascript
+code: |
+  if (user_is_admin) {
+    location.reload();
+  } 
+```
+
+>Note: the `JavaScript` action makes use of the [home-assistant-javascript-templates](https://github.com/elchininet/home-assistant-javascript-templates) library. So all the [objects and methods of this library](https://github.com/elchininet/home-assistant-javascript-templates?tab=readme-ov-file#objects-and-methods-available-in-the-templates) will be available in the `JavaScript` code.
 
 ### Configuration example
 
@@ -235,6 +248,13 @@ profiles:
         - tap
         - triple-tap
         action: toggle-menu
+      - taps:
+        - double-tap
+        - tap
+        - tap
+        action: javascript
+        code: 'location.reload();'
+
 ```
 
 [kiosk-mode]: https://github.com/NemesisRE/kiosk-mode

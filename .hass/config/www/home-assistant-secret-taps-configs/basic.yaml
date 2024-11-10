@@ -34,3 +34,12 @@ profiles:
         action: navigate
         navigation_path: /media-browser/browser
         navigation_replace: true
+      - taps:
+        - double-tap
+        - tap
+        - tap
+        action: javascript
+        code: |
+          if (user_is_admin) {
+            location.hash = 'something';
+          } 
