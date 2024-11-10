@@ -51,7 +51,7 @@
   },
   "dependencies": {
     "hammerjs": "^2.0.8",
-    "home-assistant-query-selector": "^4.2.0",
+    "home-assistant-query-selector": "^4.3.0",
     "js-yaml": "^4.1.0"
   }
 }
