@@ -124,3 +124,19 @@ test('Navigate to a panel replacing history', async ({ page }) => {
     expect(page.url()).not.toBe(`${BASE_URL}/lovelace/home`);
 
 });
+
+test('Execute a JavaScript code', async ({ page }) => {
+
+    await pageVisit(page);
+
+    expect(page.url()).toBe(`${BASE_URL}/lovelace/home`);
+
+    await moveToHeader(page);
+    await doubleTap(page);
+    await tap(page);
+    await tap(page);
+    await page.waitForTimeout(1500);
+
+    expect(page.url()).toBe(`${BASE_URL}/lovelace/home#something`);
+    
+});

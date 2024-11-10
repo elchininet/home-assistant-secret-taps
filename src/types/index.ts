@@ -17,7 +17,8 @@ export enum ServiceType {
     CALL_SERVICE = 'call-service',
     MORE_INFO = 'more-info',
     NAVIGATE = 'navigate',
-    TOGGLE_MENU = 'toggle-menu'
+    TOGGLE_MENU = 'toggle-menu',
+    JAVASCRIPT = 'javascript'
 }
 
 interface SecretBase {
@@ -45,11 +46,17 @@ export interface ToggleMenuSecret extends SecretBase {
     action: `${ServiceType.TOGGLE_MENU}`
 }
 
+export interface JavaScriptSecret extends SecretBase {
+    action: `${ServiceType.JAVASCRIPT}`,
+    code: string;
+}
+
 export type Secret =
     | ServiceSecret
     | MoreInfoSecret
     | NavigateSecret
-    | ToggleMenuSecret;
+    | ToggleMenuSecret
+    | JavaScriptSecret;
 
 export interface Profile {
     user?: string | string[];

@@ -8,6 +8,7 @@ import {
     MoreInfoSecret,
     NavigateSecret,
     ToggleMenuSecret,
+    JavaScriptSecret,
     ServiceType
 } from '@types';
 import {
@@ -109,6 +110,10 @@ export const isNavigateSecret = (secret: Secret): secret is NavigateSecret => {
 
 export const isToggleMenuSecret = (secret: Secret): secret is ToggleMenuSecret => {
     return secret.action === ServiceType.TOGGLE_MENU;
+};
+
+export const isJavaScriptSecret = (secret: Secret): secret is JavaScriptSecret => {
+    return secret.action === ServiceType.JAVASCRIPT && !!secret.code;
 };
 
 export const compareArrays = <T>(arrayA: T[], arrayB: T[]): boolean => {
