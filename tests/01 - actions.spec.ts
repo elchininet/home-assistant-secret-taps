@@ -138,5 +138,5 @@ test('Execute a JavaScript code', async ({ page }) => {
     await page.waitForTimeout(1500);
 
     expect(page.url()).toBe(`${BASE_URL}/lovelace/home#something`);
-    
+
 });
