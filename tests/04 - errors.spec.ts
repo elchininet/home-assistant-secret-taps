@@ -6,8 +6,8 @@ import {
     fulfillYaml
 } from './utilities';
 
-test.beforeEach(async () => {
-    await haConfigRequest();
+test.beforeEach(async ({ browser }) => {
+    await haConfigRequest(browser);
 });
 
 const ERROR_PREFIX = 'home-assistant-secret-taps:';

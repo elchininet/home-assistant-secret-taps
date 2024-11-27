@@ -1,43 +1,49 @@
-import { Page } from '@playwright/test';
+import { Page, Browser } from '@playwright/test';
 import { expect } from 'playwright-test-coverage';
-import {
-    BASE_URL,
-    SELECTORS,
-    MAXIMUM_RETRIES,
-    RETRY_DELAY,
-    CONFIG_PATH
-} from './constants';
+import { SELECTORS, CONFIG_PATH } from './constants';
+
+interface Context {
+    id: string;
+    user_id: string;
+}
+
+interface HomeAssistant extends HTMLElement {
+    hass: {
+        callService: (domain: string, service: string, data: Record<string, unknown>) => Promise<Context>;
+    };
+}
+
+const isBrowser = (pageOrBrowser: Page | Browser): pageOrBrowser is Browser => {
+    return 'newPage' in pageOrBrowser && typeof pageOrBrowser.newPage === 'function';
+};
 
 export const pageVisit = async (page: Page): Promise<void> => {
     await page.goto('/');
     await expect(page.locator(SELECTORS.HUI_VIEW)).toBeVisible();
 };
 
-export const haConfigRequest = async (file: string = '', retries = 0) => {
-    return fetch(
-        `${BASE_URL}/api/services/shell_command/copy_config`,
-        {
-            method: 'POST',
-            headers: {
-                'Authorization': `Bearer ${process.env.HA_TOKEN}`,
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
+export async function haConfigRequest(page: Page, file?: string): Promise<void>;
+export async function haConfigRequest(browser: Browser, file?: string): Promise<void>
+export async function haConfigRequest(pageOrBrowser: Page | Browser, file = '') {
+    const page = isBrowser(pageOrBrowser)
+        ? await pageOrBrowser.newPage()
+        : pageOrBrowser;
+    await page.goto('/');
+    await expect(page.locator(SELECTORS.SIDEBAR)).toBeVisible();
+    await expect(page.locator(SELECTORS.HUI_VIEW)).toBeVisible();
+    await page.evaluate(async (file: string) => {
+        const homeAssistant = document.querySelector('home-assistant') as HomeAssistant;
+        await homeAssistant.hass.callService(
+            'shell_command',
+            'copy_config',
+            {
                 yaml: file
-            })
-        }
-    ).then((response: Response) => {
-        if (response.ok || retries >= MAXIMUM_RETRIES) {
-            return response;
-        }
-        return new Promise((resolve) => {
-            setTimeout(() => {
-                resolve(
-                    haConfigRequest(file, retries + 1)
-                );
-            }, RETRY_DELAY);
-        });
-    });
+            }
+        );
+    }, file);
+    if (isBrowser(pageOrBrowser)) {
+        page.close();
+    }
 };
 
 export const moveToHeader = async (page:Page) => {

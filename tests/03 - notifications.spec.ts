@@ -13,8 +13,8 @@ const VISIBILITY_OPTIONS = { timeout: 0 };
 
 test.describe('Notifications disabled', () => {
 
-    test.beforeAll(async () => {
-        await haConfigRequest(CONFIG_FILES.NOTIFICATIONS_DISABLED);
+    test.beforeAll(async ({ browser }) => {
+        await haConfigRequest(browser, CONFIG_FILES.NOTIFICATIONS_DISABLED);
     });
 
     test('Successful action', async ({ page }) => {
@@ -77,8 +77,8 @@ test.describe('Notifications disabled', () => {
 
 test.describe('Notifications enabled', () => {
 
-    test.beforeAll(async () => {
-        await haConfigRequest(CONFIG_FILES.NOTIFICATIONS_ENABLED);
+    test.beforeAll(async ({ browser }) => {
+        await haConfigRequest(browser, CONFIG_FILES.NOTIFICATIONS_ENABLED);
     });
 
     test('Successful action', async ({ page }) => {
