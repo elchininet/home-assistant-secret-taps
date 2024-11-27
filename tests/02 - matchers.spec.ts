@@ -11,7 +11,7 @@ import {
 
 test('Non-matching users', async ({ page }) => {
 
-    await haConfigRequest(CONFIG_FILES.NON_MATCHING_USERS);
+    await haConfigRequest(page, CONFIG_FILES.NON_MATCHING_USERS);
 
     await pageVisit(page);
 
@@ -53,7 +53,7 @@ test('Non-matching users', async ({ page }) => {
 
 test('Matching users', async ({ page }) => {
 
-    await haConfigRequest(CONFIG_FILES.MATCHING_USERS);
+    await haConfigRequest(page, CONFIG_FILES.MATCHING_USERS);
 
     await pageVisit(page);
 
@@ -118,7 +118,7 @@ test('Matching users', async ({ page }) => {
 
 test('Not enabled', async ({ page }) => {
 
-    await haConfigRequest(CONFIG_FILES.NOT_ENABLED);
+    await haConfigRequest(page, CONFIG_FILES.NOT_ENABLED);
 
     await pageVisit(page);
 

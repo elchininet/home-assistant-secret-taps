@@ -13,8 +13,8 @@ import {
     tripleTap
 } from './utilities';
 
-test.beforeAll(async () => {
-    await haConfigRequest(CONFIG_FILES.BASIC);
+test.beforeAll(async ({ browser }) => {
+    await haConfigRequest(browser, CONFIG_FILES.BASIC);
 });
 
 test('Call service', async ({ page }) => {

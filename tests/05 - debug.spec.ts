@@ -54,8 +54,8 @@ const resetLogs = (logs: string[]): void => {
     logs.splice(0);
 };
 
-test.beforeAll(async () => {
-    await haConfigRequest(CONFIG_FILES.DEBUG);
+test.beforeAll(async ({ browser }) => {
+    await haConfigRequest(browser, CONFIG_FILES.DEBUG);
 });
 
 test('Debug logs', async ({ page }) => {
