@@ -4,7 +4,7 @@
 
 ### Execute Home Assistant actions just tapping on your device.
 
-[![Hacs Custom](https://img.shields.io/badge/HACS-Custom-41BDF5.svg)](https://github.com/hacs/integration)
+[![HACS Badge](https://img.shields.io/badge/HACS-Default-41BDF5.svg)](https://github.com/hacs/integration)
 [![HACS Action](https://github.com/elchininet/home-assistant-secret-taps/actions/workflows/hacs.yaml/badge.svg)](https://github.com/elchininet/home-assistant-secret-taps/actions/workflows/hacs.yaml)
 [![Tests](https://github.com/elchininet/home-assistant-secret-taps/actions/workflows/tests.yaml/badge.svg)](https://github.com/elchininet/home-assistant-secret-taps/actions/workflows/tests.yaml)
 [![Coverage Status](https://coveralls.io/repos/github/elchininet/home-assistant-secret-taps/badge.svg?branch=master)](https://coveralls.io/github/elchininet/home-assistant-secret-taps?branch=master)
@@ -44,44 +44,36 @@ You can install the plugin manually or through [HACS], not both. If you install 
 >Note: if your version of `HACS` is lower than `v2` consult the section [Through old HACS versions (< v2)](#through-old-hacs-versions--v2)
 
 1. Go to `HACS` dashboard
-2. Click on the three-dots icon in the top-right corner
-3. Select `Custom repositories`
-4. In the `Repository` field insert `https://github.com/elchininet/custom-sidebar` and in the `Type` select `Dashboard`
-5. Click on `Add`
-6. Search for `home-assistant-secret-taps` and click on it
-7. On the plugin page, click on the `Download` yellow button in the bottom-right corner
-8. Click on `Download` in the more-info dialog
-9. Add the url of the plugin as an [extra_module_url] in your `configuration.yaml`:
+2. Search for `home-assistant-secret-taps` and click on it
+3. On the plugin page, click on the `Download` yellow button in the bottom-right corner
+4. Click on `Download` in the more-info dialog
+5. When the plugin is already downloaded, add the url of the plugin as an [extra_module_url] in your `configuration.yaml`:
 
 ```yaml
 frontend:
   extra_module_url:
-    - /hacsfiles/home-assistant-secret-taps/home-assistant-secret-taps-plugin.js?v1.0.0
+    - /hacsfiles/home-assistant-secret-taps/home-assistant-secret-taps-plugin.js
 ```
 
-10. Make sure you add `home-assistant-secret-taps-plugin.js` and not `home-assistant-secret-taps.js` and make sure you add the correct version at the end of the URL (e.g. `?v=1.0.0`) because in this way you make Home Assistant to load the new version instead of a version stored in cache
-11. Restart Home Assistant
+6. Make sure you add `home-assistant-secret-taps-plugin.js` and not `home-assistant-secret-taps.js`
+7. Restart Home Assistant
 
 ### Through old HACS versions (< v2)
 
 1. Go to `HACS` dashboard
 2. Go to `Frontend`
-3. Click on the three-dots icon in the top-right corner
-4. Select `Custom repositories`
-5. In the `repository` field insert `https://github.com/elchininet/home-assistant-secret-taps` and in the `category` select `Lovelace`
-6. Click on `Add`
-7. Click on `Explore and download repositories` button in the bottom-right of the screen
-8. Search for `home-assistant-secret-taps` and install it
-9. Add the url of the plugin as an [extra_module_url] in your `configuration.yaml`:
+3. Click on `Explore and download repositories` button in the bottom-right of the screen
+4. Search for `home-assistant-secret-taps` and install it
+5. Add the url of the plugin as an [extra_module_url] in your `configuration.yaml`:
 
 ```yaml
 frontend:
   extra_module_url:
-    - /hacsfiles/home-assistant-secret-taps/home-assistant-secret-taps-plugin.js?v1.0.0
+    - /hacsfiles/home-assistant-secret-taps/home-assistant-secret-taps-plugin.js
 ```
 
-10. Make sure you add `home-assistant-secret-taps-plugin.js` and not `home-assistant-secret-taps.js` and make sure you add the correct version at the end of the URL (e.g. `?v=1.0.0`) because in this way you make Home Assistant to load the new version instead of a version stored in cache
-11. Restart Home Assistant
+6. Make sure you add `home-assistant-secret-taps-plugin.js` and not `home-assistant-secret-taps.js`
+7. Restart Home Assistant
 
 ### Manual installation
 
