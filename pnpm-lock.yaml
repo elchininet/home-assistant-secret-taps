@@ -15,8 +15,8 @@ importers:
         specifier: ^2.0.8
         version: 2.0.8
       home-assistant-javascript-templates:
-        specifier: ^5.6.0
-        version: 5.6.0
+        specifier: ^5.6.1
+        version: 5.6.1
       home-assistant-query-selector:
         specifier: ^4.3.0
         version: 4.3.0
@@ -984,8 +984,8 @@ packages:
     resolution: {integrity: sha512-J00e55zffgi3yVnUp0UdbMztNkr2PnizEkOe9URNohnrNhW5X0QpegkuLpOmFQInpi93Nb8MCjQRHAiCDF42NQ==}
     engines: {node: '>=10.0.0'}
 
-  home-assistant-javascript-templates@5.6.0:
-    resolution: {integrity: sha512-zlTyFHjaAG7gQoI9gKaT0pFu4k0Tm1xcJ3lak/w+xvSKzY2tnHpwV0nb3NM7Jh5UsZCwzEsokL7TqgfWpOiupA==}
+  home-assistant-javascript-templates@5.6.1:
+    resolution: {integrity: sha512-aowBlMXo7TUas7oN4E6WEXl6gyVZp2lZpu85W14bCH1nn8f1ERtbCtf0S20lLxBsTr6vcy9zuAwKUbk5Xk17HA==}
 
   home-assistant-query-selector@4.3.0:
     resolution: {integrity: sha512-L+TfdKKlqKAijIp/dWYKmtQWmTT+S9CZOM43L1lu1azPwVqIhJ2nlzf4GZ1MpWlGjY0+kn4sip0TYxvSCpZeeg==}
@@ -2548,7 +2548,7 @@ snapshots:
 
   helpertypes@0.0.19: {}
 
-  home-assistant-javascript-templates@5.6.0:
+  home-assistant-javascript-templates@5.6.1:
     dependencies:
       get-promisable-result: 1.0.1
 
