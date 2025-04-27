@@ -54,10 +54,5 @@
     "home-assistant-javascript-templates": "^5.7.1",
     "home-assistant-query-selector": "^4.3.0",
     "js-yaml": "^4.1.0"
-  },
-  "pnpm": {
-    "overrides": {
-      "@babel/helpers@<7.26.10": ">=7.26.10"
-    }
   }
 }
