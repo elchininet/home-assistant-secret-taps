@@ -39,15 +39,20 @@ These are just common hypotehtical use cases but I am sure that you will ideate 
 
 You can install the plugin manually or through [HACS], not both. If you install the plugin using the two installations methods you could have issues or errors.
 
-### Through HACS (v2 or greater)
+### Through HACS
 
->Note: if your version of `HACS` is lower than `v2` consult the section [Through old HACS versions (< v2)](#through-old-hacs-versions--v2)
+#### Go to the HACS plugin's page
+
+If you have not disabled the [My Home Assistant] integration, just click on [this link](https://my.home-assistant.io/redirect/hacs_repository/?owner=elchininet&repository=home-assistant-secret-taps&category=plugin) to go to the plugin's page, otherwise follow the next steps:
 
 1. Go to `HACS` dashboard
 2. Search for `home-assistant-secret-taps` and click on it
-3. On the plugin page, click on the `Download` yellow button in the bottom-right corner
-4. Click on `Download` in the more-info dialog
-5. When the plugin is already downloaded, add the url of the plugin as an [extra_module_url] in your `configuration.yaml`:
+
+#### Install the plugin
+
+1. On the plugin page, click on the `Download` yellow button in the bottom-right corner
+2. Click on `Download` in the more-info dialog
+3. When the plugin is already downloaded, add the url of the plugin as an [extra_module_url] in your `configuration.yaml`:
 
 ```yaml
 frontend:
@@ -55,25 +60,8 @@ frontend:
     - /hacsfiles/home-assistant-secret-taps/home-assistant-secret-taps-plugin.js
 ```
 
-6. Make sure you add `home-assistant-secret-taps-plugin.js` and not `home-assistant-secret-taps.js`
-7. Restart Home Assistant
-
-### Through old HACS versions (< v2)
-
-1. Go to `HACS` dashboard
-2. Go to `Frontend`
-3. Click on `Explore and download repositories` button in the bottom-right of the screen
-4. Search for `home-assistant-secret-taps` and install it
-5. Add the url of the plugin as an [extra_module_url] in your `configuration.yaml`:
-
-```yaml
-frontend:
-  extra_module_url:
-    - /hacsfiles/home-assistant-secret-taps/home-assistant-secret-taps-plugin.js
-```
-
-6. Make sure you add `home-assistant-secret-taps-plugin.js` and not `home-assistant-secret-taps.js`
-7. Restart Home Assistant
+4. Make sure you add `home-assistant-secret-taps-plugin.js` and not `home-assistant-secret-taps.js`
+5. Restart Home Assistant
 
 ### Manual installation
 
@@ -251,6 +239,7 @@ profiles:
 
 [kiosk-mode]: https://github.com/NemesisRE/kiosk-mode
 [custom-sidebar]: https://github.com/elchininet/custom-sidebar
+[My Home Assistant]: https://www.home-assistant.io/integrations/my/
 [lovelace-state-switch]: https://github.com/thomasloven/lovelace-state-switch
 [HACS]: https://hacs.xyz
 [extra_module_url]: https://www.home-assistant.io/integrations/frontend/#extra_module_url
