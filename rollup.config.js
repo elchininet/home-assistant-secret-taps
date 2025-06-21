@@ -3,17 +3,17 @@ import json from '@rollup/plugin-json';
 import terser from '@rollup/plugin-terser';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 import istanbul from 'rollup-plugin-istanbul';
+import replace from '@rollup/plugin-replace';
 
-const getCommonPlugins = (outDir = './dist/') => [
+const commonPlugins = [
     nodeResolve(),
     json(),
     typescript({
-        compilerOptions: {
-            outDir,
-            sourceRoot: __dirname
-        },
+        mapRoot: '/'
     })
 ];
+
+console.log(__dirname);
 
 const terserPlugin = terser({
     output: {
@@ -24,7 +24,7 @@ const terserPlugin = terser({
 export default [
     {
         plugins: [
-            ...getCommonPlugins(),
+            ...commonPlugins,
             terserPlugin
         ],
         input: 'src/checker.ts',
@@ -36,7 +36,7 @@ export default [
     },
     {
         plugins: [
-            ...getCommonPlugins(),
+            ...commonPlugins,
             terserPlugin
         ],
         input: 'src/home-assistant-secret-taps.ts',
@@ -47,17 +47,25 @@ export default [
     },
     {
         plugins: [
-            ...getCommonPlugins('./.hass/config/www/'),
+            ...commonPlugins,
             istanbul({
                 exclude: [
                     'node_modules/**/*',
                     'package.json'
                 ]
+            }),
+            replace({
+                values: {
+                    [`../..${__dirname}`]: __dirname,
+                    [`..${__dirname}`]: __dirname,
+                },
+                preventAssignment: true,
+                delimiters: ['', '']
             })
         ],
         input: 'src/home-assistant-secret-taps.ts',
         output: {
-            file: '.hass/config/www/home-assistant-secret-taps-plugin.js',
+            file: 'dist/ha-plugin.js',
             format: 'iife'
         }
     }
