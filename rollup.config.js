@@ -3,14 +3,14 @@ import json from '@rollup/plugin-json';
 import terser from '@rollup/plugin-terser';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 import istanbul from 'rollup-plugin-istanbul';
+import replace from '@rollup/plugin-replace';
 
 const getCommonPlugins = (outDir = './dist/') => [
     nodeResolve(),
     json(),
     typescript({
         compilerOptions: {
-            outDir,
-            sourceRoot: __dirname
+            outDir
         },
     })
 ];
@@ -53,7 +53,11 @@ export default [
                     'node_modules/**/*',
                     'package.json'
                 ]
-            })
+            }),
+            replace({
+                'sources:["../../../../../src': `sources:["${__dirname}/src`,
+                preventAssignment: true
+            }),
         ],
         input: 'src/home-assistant-secret-taps.ts',
         output: {
