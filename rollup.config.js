@@ -1,29 +1,32 @@
-import ts from 'rollup-plugin-ts';
+import typescript from '@rollup/plugin-typescript';
 import json from '@rollup/plugin-json';
 import terser from '@rollup/plugin-terser';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 import istanbul from 'rollup-plugin-istanbul';
+import replace from '@rollup/plugin-replace';
 
-const commonPlugins = [
+const getCommonPlugins = (outDir = './dist/') => [
     nodeResolve(),
     json(),
-    ts({
-        browserslist: false
+    typescript({
+        compilerOptions: {
+            outDir
+        },
     })
 ];
 
-const plugins = [
-    ...commonPlugins,
-    terser({
-        output: {
-            comments: false
-        }
-    })
-];
+const terserPlugin = terser({
+    output: {
+        comments: false
+    }
+});
 
 export default [
     {
-        plugins,
+        plugins: [
+            ...getCommonPlugins(),
+            terserPlugin
+        ],
         input: 'src/checker.ts',
         output: {
             name: 'homeAssistantSecretTapsChecker',
@@ -32,7 +35,10 @@ export default [
         }
     },
     {
-        plugins,
+        plugins: [
+            ...getCommonPlugins(),
+            terserPlugin
+        ],
         input: 'src/home-assistant-secret-taps.ts',
         output: {
             file: 'dist/home-assistant-secret-taps-plugin.js',
@@ -41,13 +47,17 @@ export default [
     },
     {
         plugins: [
-            ...commonPlugins,
+            ...getCommonPlugins('./.hass/config/www/'),
             istanbul({
                 exclude: [
                     'node_modules/**/*',
                     'package.json'
                 ]
-            })
+            }),
+            replace({
+                'sources:["../../../../../src': `sources:["${__dirname}/src`,
+                preventAssignment: true
+            }),
         ],
         input: 'src/home-assistant-secret-taps.ts',
         output: {
