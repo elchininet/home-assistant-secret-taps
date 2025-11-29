@@ -19,7 +19,9 @@ const isBrowser = (pageOrBrowser: Page | Browser): pageOrBrowser is Browser => {
 
 export const pageVisit = async (page: Page): Promise<void> => {
     await page.goto('/');
+    await expect(page.locator(SELECTORS.SIDEBAR)).toBeVisible();
     await expect(page.locator(SELECTORS.HUI_VIEW)).toBeVisible();
+    await page.waitForTimeout(1000);
 };
 
 export async function haConfigRequest(page: Page, file?: string): Promise<void>;
