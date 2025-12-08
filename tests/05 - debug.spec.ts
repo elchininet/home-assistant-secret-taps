@@ -1,12 +1,13 @@
 import { test, expect } from 'playwright-test-coverage';
 import { CONFIG_FILES } from './constants';
 import {
-    pageVisit,
+    doubleTap,
     haConfigRequest,
     moveToHeader,
+    pageVisit,
     tap,
-    doubleTap,
-    tripleTap
+    tripleTap,
+    noCacheRoute
 } from './utilities';
 
 const NAMESPACE = 'home-assistant-secret-taps:';
@@ -57,6 +58,8 @@ const resetLogs = (logs: string[]): void => {
 test.beforeAll(async ({ browser }) => {
     await haConfigRequest(browser, CONFIG_FILES.DEBUG);
 });
+
+test.beforeEach(noCacheRoute);
 
 test('Debug logs', async ({ page }) => {
 

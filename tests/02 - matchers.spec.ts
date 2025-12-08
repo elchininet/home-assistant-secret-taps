@@ -1,17 +1,20 @@
 import { test, expect } from 'playwright-test-coverage';
 import { CONFIG_FILES, SELECTORS } from './constants';
 import {
+    doubleTap,
     haConfigRequest,
     pageVisit,
     moveToHeader,
     tap,
-    doubleTap,
-    tripleTap
+    tripleTap,
+    noCacheRoute
 } from './utilities';
 
 test('Non-matching users', async ({ page }) => {
 
     await haConfigRequest(page, CONFIG_FILES.NON_MATCHING_USERS);
+
+    noCacheRoute({ page });
 
     await pageVisit(page);
 
@@ -54,6 +57,8 @@ test('Non-matching users', async ({ page }) => {
 test('Matching users', async ({ page }) => {
 
     await haConfigRequest(page, CONFIG_FILES.MATCHING_USERS);
+
+    noCacheRoute({ page });
 
     await pageVisit(page);
 
@@ -119,6 +124,8 @@ test('Matching users', async ({ page }) => {
 test('Not enabled', async ({ page }) => {
 
     await haConfigRequest(page, CONFIG_FILES.NOT_ENABLED);
+
+    noCacheRoute({ page });
 
     await pageVisit(page);
 

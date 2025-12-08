@@ -1,15 +1,18 @@
 import { test, expect } from 'playwright-test-coverage';
 import { CONFIG_FILES, SELECTORS } from './constants';
 import {
-    pageVisit,
+    doubleTap,
     haConfigRequest,
     moveToHeader,
-    tap,
-    doubleTap
+    pageVisit,
+    noCacheRoute,
+    tap
 } from './utilities';
 
 const TOAST_FAILURE = /^Failed.*?input_boolean\/toggle.*$/;
 const VISIBILITY_OPTIONS = { timeout: 0 };
+
+test.beforeEach(noCacheRoute);
 
 test.describe('Notifications disabled', () => {
 
