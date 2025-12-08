@@ -1,12 +1,14 @@
 import { test, expect } from 'playwright-test-coverage';
 import { CONFIG_PATH } from './constants';
 import {
-    pageVisit,
+    fulfillYaml,
     haConfigRequest,
-    fulfillYaml
+    pageVisit,
+    noCacheRoute
 } from './utilities';
 
-test.beforeEach(async ({ browser }) => {
+test.beforeEach(async ({ page, browser }): Promise<void> => {
+    noCacheRoute({ page });
     await haConfigRequest(browser);
 });
 

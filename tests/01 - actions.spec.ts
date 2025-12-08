@@ -5,17 +5,20 @@ import {
     SELECTORS
 } from './constants';
 import {
-    pageVisit,
+    doubleTap,
     haConfigRequest,
     moveToHeader,
+    noCacheRoute,
+    pageVisit,
     tap,
-    doubleTap,
     tripleTap
 } from './utilities';
 
 test.beforeAll(async ({ browser }) => {
     await haConfigRequest(browser, CONFIG_FILES.BASIC);
 });
+
+test.beforeEach(noCacheRoute);
 
 test('Call service', async ({ page }) => {
 
