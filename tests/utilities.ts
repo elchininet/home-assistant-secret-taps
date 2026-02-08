@@ -58,7 +58,7 @@ export async function haConfigRequest(pageOrBrowser: Page | Browser, file = '') 
     const page = isBrowser(pageOrBrowser)
         ? await pageOrBrowser.newPage()
         : pageOrBrowser;
-    page.route('**', route => route.continue());
+    await page.route('**', route => route.continue());
     await pageVisit(page);
     await page.evaluate(async (file: string) => {
         const homeAssistant = document.querySelector('home-assistant') as HomeAssistant;
@@ -72,7 +72,7 @@ export async function haConfigRequest(pageOrBrowser: Page | Browser, file = '') 
     }, file);
     await page.unrouteAll({ behavior: 'ignoreErrors' });
     if (isBrowser(pageOrBrowser)) {
-        page.close();
+        await page.close();
     }
 };
 
@@ -110,6 +110,6 @@ export const fulfillYaml = async (page: Page, yaml: string): Promise<void> => {
     });
 };
 
-export const noCacheRoute = ({ page }: { page: Page }): void => {
-    page.route('**', route => route.continue());
+export const noCacheRoute = async ({ page }: { page: Page }): Promise<void> => {
+    await page.route('**', route => route.continue());
 };
