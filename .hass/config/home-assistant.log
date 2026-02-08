@@ -1,9 +1,19 @@
-2024-09-10 17:50:25.531 WARNING (Recorder) [homeassistant.components.recorder.util] The system could not validate that the sqlite3 database at //config/home-assistant_v2.db was shutdown cleanly
-2024-09-10 17:50:26.187 WARNING (Recorder) [homeassistant.components.recorder.migration] The database is about to upgrade from schema version 42 to 47
-2024-09-10 17:50:26.187 WARNING (Recorder) [homeassistant.components.recorder.migration] Adding columns last_reported_ts to table states. Note: this can take several minutes on large databases and slow machines. Please be patient!
-2024-09-10 17:50:26.198 WARNING (Recorder) [homeassistant.components.recorder.migration] Upgrade to version 43 done
-2024-09-10 17:50:26.202 WARNING (Recorder) [homeassistant.components.recorder.migration] Upgrade to version 44 done
-2024-09-10 17:50:26.204 WARNING (Recorder) [homeassistant.components.recorder.migration] Upgrade to version 45 done
-2024-09-10 17:50:26.219 WARNING (Recorder) [homeassistant.components.recorder.migration] Upgrade to version 46 done
-2024-09-10 17:50:26.221 WARNING (Recorder) [homeassistant.components.recorder.migration] Upgrade to version 47 done
-2024-09-10 17:50:30.527 WARNING (MainThread) [homeassistant.components.http.ban] Login attempt or request with invalid authentication from 172.17.0.1 (172.17.0.1). Requested URL: '/api/websocket'. (Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36)
+2026-02-08 20:45:59.761 WARNING (Recorder) [homeassistant.components.recorder.util] The system could not validate that the sqlite3 database at //config/home-assistant_v2.db was shutdown cleanly
+2026-02-08 20:45:59.770 WARNING (Recorder) [homeassistant.components.recorder.migration] The database is about to upgrade from schema version 47 to 48. Note: this may take several hours on large databases and slow machines. Home Assistant will not start until the upgrade is completed. Please be patient and do not turn off or restart Home Assistant while the upgrade is in progress!
+2026-02-08 20:45:59.770 WARNING (Recorder) [homeassistant.components.recorder.migration] Upgrading recorder db schema to version 48
+2026-02-08 20:45:59.773 WARNING (Recorder) [homeassistant.components.recorder.migration] Upgrade to version 48 done
+2026-02-08 20:46:00.982 WARNING (Recorder) [homeassistant.components.recorder.migration] The database is about to upgrade from schema version 48 to 53
+2026-02-08 20:46:00.982 WARNING (Recorder) [homeassistant.components.recorder.migration] Upgrading recorder db schema to version 49
+2026-02-08 20:46:00.983 WARNING (Recorder) [homeassistant.components.recorder.migration] Adding columns mean_type to table statistics_meta. Note: this may take several minutes on large databases and slow machines. Please be patient!
+2026-02-08 20:46:00.986 WARNING (Recorder) [homeassistant.components.recorder.migration] Adding columns mean_weight to table statistics. Note: this may take several minutes on large databases and slow machines. Please be patient!
+2026-02-08 20:46:00.987 WARNING (Recorder) [homeassistant.components.recorder.migration] Adding columns mean_weight to table statistics_short_term. Note: this may take several minutes on large databases and slow machines. Please be patient!
+2026-02-08 20:46:00.997 WARNING (Recorder) [homeassistant.components.recorder.migration] Upgrade to version 49 done
+2026-02-08 20:46:00.997 WARNING (Recorder) [homeassistant.components.recorder.migration] Upgrading recorder db schema to version 50
+2026-02-08 20:46:01.002 WARNING (Recorder) [homeassistant.components.recorder.migration] Upgrade to version 50 done
+2026-02-08 20:46:01.002 WARNING (Recorder) [homeassistant.components.recorder.migration] Upgrading recorder db schema to version 51
+2026-02-08 20:46:01.004 WARNING (Recorder) [homeassistant.components.recorder.migration] Upgrade to version 51 done
+2026-02-08 20:46:01.004 WARNING (Recorder) [homeassistant.components.recorder.migration] Upgrading recorder db schema to version 52
+2026-02-08 20:46:01.004 WARNING (Recorder) [homeassistant.components.recorder.migration] Adding columns unit_class to table statistics_meta. Note: this may take several minutes on large databases and slow machines. Please be patient!
+2026-02-08 20:46:01.010 WARNING (Recorder) [homeassistant.components.recorder.migration] Upgrade to version 52 done
+2026-02-08 20:46:01.010 WARNING (Recorder) [homeassistant.components.recorder.migration] Upgrading recorder db schema to version 53
+2026-02-08 20:46:01.011 WARNING (Recorder) [homeassistant.components.recorder.migration] Upgrade to version 53 done

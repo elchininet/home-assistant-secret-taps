@@ -17,7 +17,14 @@ script: !include scripts.yaml
 scene: !include scenes.yaml
 
 lovelace:
-  mode: yaml
+  dashboards:
+    lovelace:
+      mode: yaml
+      filename: ui-lovelace.yaml
+      title: Home
+      icon: mdi:view-dashboard
+      show_in_sidebar: true
+
 
 input_boolean:
   my_switch:
