@@ -18,8 +18,8 @@ export const SELECTORS = {
     HA_DRAWER: 'ha-drawer',
     HUI_VIEW: 'hui-view',
     MY_SWITCH: '#basic-switch',
-    MORE_INFO_DIALOG: 'ha-dialog',
-    DIALOG_HEADER_TITLE: 'ha-dialog-header span[slot="title"]',
+    MORE_INFO_DIALOG: 'ha-adaptive-dialog',
+    DIALOG_HEADER_TITLE: 'span[slot="headerTitle"] .main',
     SIDEBAR: 'ha-sidebar',
     TOAST: '.mdc-snackbar__label'
 };
