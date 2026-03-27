@@ -21,5 +21,5 @@ export const SELECTORS = {
     MORE_INFO_DIALOG: 'ha-adaptive-dialog',
     DIALOG_HEADER_TITLE: 'span[slot="headerTitle"] .main',
     SIDEBAR: 'ha-sidebar',
-    TOAST: '.mdc-snackbar__label'
+    TOAST: 'wa-popup .message'
 };
