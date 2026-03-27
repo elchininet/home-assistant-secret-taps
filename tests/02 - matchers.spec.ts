@@ -117,7 +117,7 @@ test('Matching users', async ({ page }) => {
     ).toBeInViewport();
     await expect(
         page.locator(SELECTORS.DIALOG_HEADER_TITLE)
-    ).toContainText('laundry');
+    ).toContainText('Laundry');
 
 });
 
