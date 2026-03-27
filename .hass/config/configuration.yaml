@@ -32,6 +32,7 @@ input_boolean:
 
 timer:
   laundry:
+    name: Laundry
     duration: "00:01:00"
 
 shell_command:
