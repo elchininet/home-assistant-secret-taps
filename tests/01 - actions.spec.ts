@@ -89,7 +89,7 @@ test('Open more-info dialog', async ({ page }) => {
     await page.waitForTimeout(1500);
 
     await expect(dialog).toBeInViewport();
-    await expect(dialogTitle).toContainText('laundry');
+    await expect(dialogTitle).toContainText('Laundry');
 
 });
 
