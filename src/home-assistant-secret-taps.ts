@@ -15,7 +15,7 @@ import {
     ServiceSecret,
     MoreInfoSecret,
     NavigateSecret
-} from 'types';
+} from '@types';
 import {
     NAMESPACE,
     DEFAULT_THRESHOLD,
@@ -95,15 +95,15 @@ class HomeAssistantSecretTaps {
 
     }
 
-    private _config: Config;
-    private _threshold: number;
-    private _ha: HomeAssistant;
-    private _main: HTMLElement;
-    private _renderer: HomeAssistantJavaScriptTemplatesRenderer;
-    private _secrets: Secret[];
-    private _taps: HammerManager;
-    private _stack: string[] | null;
-    private _eventTimeoutId: number;
+    private _config!: Config;
+    private _threshold!: number;
+    private _ha!: HomeAssistant;
+    private _main!: HTMLElement;
+    private _renderer!: HomeAssistantJavaScriptTemplatesRenderer;
+    private _secrets!: Secret[];
+    private _taps!: HammerManager;
+    private _stack!: string[] | null;
+    private _eventTimeoutId!: number;
 
 
     private _log(message: string | object): void {
@@ -119,8 +119,8 @@ class HomeAssistantSecretTaps {
         const { service, data = {} } = secret;
         const matches = service.match(DOMAIN_ENTITY_REGEXP);
         this._ha.hass.callService(
-            matches[1],
-            matches[2],
+            matches![1],
+            matches![2],
             data
         );
     }
@@ -244,7 +244,7 @@ class HomeAssistantSecretTaps {
         this._log('checking if there is a scret with the previous event stack');
 
         const secret = this._secrets.find((secret: Secret): boolean => {
-            return compareArrays(this._stack, secret.taps);
+            return compareArrays(this._stack!, secret.taps);
         });
 
         if (secret) {
@@ -279,6 +279,8 @@ class HomeAssistantSecretTaps {
 
     private _start(): void {
 
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
         delete Hammer.defaults.cssProps;
 
         this._taps = new Hammer.Manager(this._ha);

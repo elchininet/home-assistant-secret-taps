@@ -29,6 +29,8 @@ export const logVersionToConsole = () => {
 
 export const randomId = (): string => Math.random().toString(16).slice(2);
 
+export const isUndefined = (value: unknown): value is undefined => typeof value === TYPEOF.UNDEFINED;
+
 export const fetchConfig = async (): Promise<Config> => {
     const errorNotFound = `${NAMESPACE}: YAML config file not found.`;
     const errorSuffix = 'Make sure you have valid config in /config/www/secret-taps.yaml file.';
@@ -41,7 +43,8 @@ export const fetchConfig = async (): Promise<Config> => {
                         .then((yaml) => {
                             return jsYaml.load(yaml);
                         })
-                        .then((config: Config) => {
+                        .then((result: unknown) => {
+                            const config = result as Config;
                             resolve(config);
                         })
                         .catch((error: Error) => {
@@ -74,9 +77,9 @@ export const getSecrets = (config: Config, user: User): Secret[] => {
 
     const matchedProfiles = config.profiles.filter((profile: Profile): boolean => {
 
-        const matchIsAdmin = typeof profile.admin === TYPEOF.UNDEFINED || profile.admin === isAdmin;
-        const matchIsOwner = typeof profile.owner === TYPEOF.UNDEFINED || profile.owner === isOwner;
-        const matchUserName = typeof profile.user === TYPEOF.UNDEFINED || toArray(profile.user).includes(userName);
+        const matchIsAdmin = isUndefined(profile.admin) || profile.admin === isAdmin;
+        const matchIsOwner = isUndefined(profile.owner) || profile.owner === isOwner;
+        const matchUserName = isUndefined(profile.user) || toArray(profile.user).includes(userName);
 
         return matchIsAdmin && matchIsOwner && matchUserName;
 
