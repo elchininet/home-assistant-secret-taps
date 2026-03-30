@@ -1,4 +1,4 @@
-import ts from 'rollup-plugin-ts';
+import ts from '@rollup/plugin-typescript';
 import json from '@rollup/plugin-json';
 import terser from '@rollup/plugin-terser';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
@@ -7,13 +7,11 @@ import istanbul from 'rollup-plugin-istanbul';
 const commonPlugins = [
     nodeResolve(),
     json(),
-    ts({
-        browserslist: false
-    })
 ];
 
 const plugins = [
     ...commonPlugins,
+    ts(),
     terser({
         output: {
             comments: false
@@ -42,6 +40,9 @@ export default [
     {
         plugins: [
             ...commonPlugins,
+            ts({
+                outDir: undefined
+            }),
             istanbul({
                 exclude: [
                     'node_modules/**/*',
