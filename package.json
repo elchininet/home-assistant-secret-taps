@@ -41,7 +41,7 @@
     "@types/hammerjs": "^2.0.46",
     "@types/js-yaml": "^4.0.9",
     "@types/node": "^25.5.2",
-    "eslint": "^10.1.0",
+    "eslint": "^10.2.0",
     "globals": "^17.4.0",
     "nyc": "^18.0.0",
     "playwright-test-coverage": "^1.2.12",
