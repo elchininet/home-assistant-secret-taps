@@ -55,7 +55,7 @@
     "get-promisable-result": "^2.0.0",
     "hammerjs": "^2.0.8",
     "home-assistant-javascript-templates": "^7.0.0",
-    "home-assistant-query-selector": "6.0.1",
+    "home-assistant-query-selector": "6.1.0",
     "js-yaml": "^4.1.1"
   },
   "pnpm": {
