@@ -17,7 +17,7 @@ export const SELECTORS = {
     HOME_ASSISTANT_MAIN: 'home-assistant-main',
     HA_DRAWER: 'ha-drawer',
     HUI_VIEW: 'hui-view',
-    MY_SWITCH: '#switch',
+    MY_SWITCH: 'ha-entity-toggle ha-switch input[role="switch"]',
     MORE_INFO_DIALOG: 'ha-adaptive-dialog',
     DIALOG_HEADER_TITLE: 'span[slot="headerTitle"] .main',
     SIDEBAR: 'ha-sidebar',
