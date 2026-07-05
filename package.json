@@ -56,6 +56,6 @@
     "hammerjs": "^2.0.8",
     "home-assistant-javascript-templates": "^7.1.0",
     "home-assistant-query-selector": "7.0.0",
-    "js-yaml": "^5.2.0"
+    "js-yaml": "^5.2.1"
   }
 }
