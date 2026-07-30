@@ -43,6 +43,7 @@ export const waitForMainElements = async (page: Page): Promise<void> => {
     await expect(page.locator(SELECTORS.HA_DRAWER)).toBeVisible();
     await expect(page.locator(SELECTORS.SIDEBAR)).toBeVisible();
     await expect(page.locator(SELECTORS.HUI_VIEW)).toBeVisible();
+    await expect(page.locator(SELECTORS.TOAST)).not.toBeVisible({ timeout: 30000 });
 };
 
 export const pageVisit = async (page: Page): Promise<void> => {
@@ -77,6 +78,7 @@ export async function haConfigRequest(pageOrBrowser: Page | Browser, file = '') 
 };
 
 export const moveToHeader = async (page:Page) => {
+    await page.waitForTimeout(500);
     await page.mouse.move(300, 15);
 };
 
