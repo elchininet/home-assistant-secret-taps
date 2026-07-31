@@ -1,6 +1,5 @@
-2026-07-30 16:35:54.527 WARNING (Recorder) [homeassistant.components.recorder.util] The system could not validate that the sqlite3 database at //config/home-assistant_v2.db was shutdown cleanly
-2026-07-30 16:35:54.540 WARNING (Recorder) [homeassistant.components.recorder.util] Ended unfinished session (id=6 from 2026-02-08 20:45:59.758151)
-2026-07-30 16:35:55.742 WARNING (ImportExecutor_0) [py.warnings] /usr/local/lib/python3.14/site-packages/rich/segment.py:547: SyntaxWarning: 'return' in a 'finally' block
+2026-07-31 21:13:46.460 WARNING (Recorder) [homeassistant.components.recorder.util] The system could not validate that the sqlite3 database at //config/home-assistant_v2.db was shutdown cleanly
+2026-07-31 21:13:46.471 WARNING (Recorder) [homeassistant.components.recorder.util] Ended unfinished session (id=7 from 2026-07-30 16:35:54.521694)
+2026-07-31 21:13:47.715 WARNING (ImportExecutor_0) [py.warnings] /usr/local/lib/python3.14/site-packages/rich/segment.py:547: SyntaxWarning: 'return' in a 'finally' block
   return
 
-2026-07-30 16:36:00.200 WARNING (MainThread) [homeassistant.components.http.ban] Login attempt or request with invalid authentication from 172.67.68.90 (172.67.68.90). Requested URL: '/api/websocket'. (Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36)
