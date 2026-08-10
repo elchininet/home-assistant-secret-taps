@@ -9,7 +9,9 @@ import {
     tap
 } from './utilities';
 
+const TOAST_SUCCESS = 'secret taps successfully executed!';
 const TOAST_FAILURE = /^Failed.*?input_boolean\/toggle.*$/;
+const TOAST_NON_EXISTENT = 'secret taps failed! Review your secret config!';
 const VISIBILITY_OPTIONS = { timeout: 0 };
 
 test.beforeEach(noCacheRoute);
@@ -54,10 +56,9 @@ test.describe('Notifications disabled', () => {
         await doubleTap(page);
         await page.waitForTimeout(1500);
 
-        const toast = page.locator(SELECTORS.TOAST);
+        const toast = page.locator(SELECTORS.TOAST).filter({ hasText: TOAST_FAILURE });
 
         await expect(toast).toBeVisible();
-        await expect(toast).toContainText(TOAST_FAILURE);
 
     });
 
@@ -94,10 +95,9 @@ test.describe('Notifications enabled', () => {
         await tap(page);
         await page.waitForTimeout(1500);
 
-        const toast = page.locator(SELECTORS.TOAST);
+        const toast = page.locator(SELECTORS.TOAST).filter({ hasText: TOAST_SUCCESS });
 
         await expect(toast).toBeVisible();
-        await expect(toast).toContainText('secret taps successfully executed!');
         await expect(toast).not.toBeVisible();
 
         await moveToHeader(page);
@@ -107,7 +107,6 @@ test.describe('Notifications enabled', () => {
         await page.waitForTimeout(1500);
 
         await expect(toast).toBeVisible();
-        await expect(toast).toContainText('secret taps successfully executed!');
 
     });
 
@@ -121,10 +120,9 @@ test.describe('Notifications enabled', () => {
         await doubleTap(page);
         await page.waitForTimeout(1500);
 
-        const toast = page.locator(SELECTORS.TOAST);
+        const toast = page.locator(SELECTORS.TOAST).filter({ hasText: TOAST_FAILURE });
 
         await expect(toast).toBeVisible();
-        await expect(toast).toContainText(TOAST_FAILURE);
 
     });
 
@@ -137,10 +135,9 @@ test.describe('Notifications enabled', () => {
         await doubleTap(page);
         await page.waitForTimeout(1500);
 
-        const toast = page.locator(SELECTORS.TOAST);
+        const toast = page.locator(SELECTORS.TOAST).filter({ hasText: TOAST_NON_EXISTENT });
 
         await expect(toast).toBeVisible();
-        await expect(toast).toContainText('secret taps failed! Review your secret config!');
 
     });
 
