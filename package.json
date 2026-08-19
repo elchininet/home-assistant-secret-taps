@@ -1,6 +1,6 @@
 {
   "name": "home-assistant-secret-taps",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "description": "Execute Home Assistant actions just tapping on your device",
   "type": "module",
   "main": "dist/home-assistant-secret-taps.js",
